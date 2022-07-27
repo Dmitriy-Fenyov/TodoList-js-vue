@@ -2,7 +2,11 @@
 <div>
 
 <ul>
-    <Todoitem />
+    
+    <Todoitem 
+    v-for="todo of todos"
+    v-bind:todo="todo"
+    />
 </ul>
 
 </div>
@@ -10,12 +14,21 @@
 </template>
 
 <script>
-import TodoitemVue from './Todoitem.vue'
+
 import Todoitem from './Todoitem.vue'
 export default {
+    props: ['todos'],
     components: {
-    TodoitemVue,
     Todoitem
 } 
 }
 </script>
+
+<style scoped>
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+</style>
