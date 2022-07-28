@@ -6,6 +6,8 @@
     <Todoitem 
     v-for="todo of todos"
     v-bind:todo="todo"
+    v-on:remove-todo="removeTodo"
+    
     />
 </ul>
 
@@ -15,12 +17,19 @@
 
 <script>
 
+
 import Todoitem from './Todoitem.vue'
 export default {
     props: ['todos'],
     components: {
     Todoitem
-} 
+    }, 
+    methods: {
+        removeTodo(id) {
+            this.$emit('remove-todo', id)
+        }
+
+    }
 }
 </script>
 
